@@ -10,15 +10,13 @@ terraform {
 }
 
 provider "aws" {
-  region  = "ap-south-1"
+  region  = var.aws_region
   profile = "auto-healing"
 }
 
 locals {
-  project_name = "aws-auto-healing"
-
   common_tags = {
-    Project     = local.project_name
+    Project     = var.project_name
     Environment = "development"
     ManagedBy   = "Terraform"
   }
